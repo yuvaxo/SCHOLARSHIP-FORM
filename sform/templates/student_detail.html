@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Detail</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <form action="{% url 'logout' %}" method="post" >
+        {% csrf_token %}
+        <br>
+        <button type="submit" class="btn btn-info" style="margin-left:30cm; background-color:#FF0000;">Logout</button>
+    </form>
+    <center><h2>STUDENT DETAILS</h2></center>
+    <br>
+    <ul class="list-group">
+        <li class="list-group-item"><strong>Student id:</strong> {{ student.s_code }}</li>
+        <li class="list-group-item"><strong>Name:</strong> {{ student.s_name }}</li>
+        <li class="list-group-item"><strong>Gender:</strong> {{ student.sex }}</li>
+        <li class="list-group-item"><strong>Date of Birth:</strong> {{ student.dob }}</li>
+        <li class="list-group-item"><strong>Educational Year:</strong> {{ student.edu_year }}</li>
+        <li class="list-group-item"><strong>Father/Mother Name:</strong> {{ student.f_m_name }}</li>
+        <li class="list-group-item"><strong>Community:</strong> {{ student.community }}</li>
+        <li class="list-group-item"><strong>Parent Income:</strong> {{ student.p_income }}</li>
+        <li class="list-group-item"><strong>Community Attachment Name:</strong> {{ student.ca_name }}</li>
+        <li class="list-group-item"><strong>Income Attachment Name:</strong> {{ student.ia_name }}</li>
+    </ul>
+    <br>
+
+    <a href="{% url 'add_other_details' %}" class="btn btn-info" style="background-color:#004d99;">EDIT DETAILS</a>
+    <a href="{% url 'full_detail' student_id=student.s_code %}" class="btn btn-info" style="background-color:#004d99;">VIEW DETAILS</a>
+    
+    
+</div>
+
+</body>
+</html>

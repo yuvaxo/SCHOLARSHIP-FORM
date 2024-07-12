@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Full Detail</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.toggle-section').click(function() {
+                var target = $(this).data('target');
+                $('.collapse').not(target).collapse('hide');
+                $(target).collapse('toggle');
+            });
+        });
+    </script>
+    
+</head>
+<body style="padding-bottom: 5vh;padding-top: 2vh;">
+<div class="container">
+    <center><h2>FULL DETAILS</h2></center>
+    <br>
+    <center>
+    <button class="btn btn-info toggle-section" type="button" data-target="#studentDetails" style="margin-right: 1cm;margin-left:4cm;background-color:#004d99; ">
+        STUDENT DETAILS
+    </button>
+    <button class="btn btn-info toggle-section" type="button" data-target="#locationDetails" style="margin-right: 1cm;background-color:#004d99;">
+        ADDRESS DETAILS
+    </button>
+    <button class="btn btn-info toggle-section" type="button" data-target="#collegeDetails" style="margin-right: 1cm;background-color:#004d99;">
+        COLLEGE DETAILS
+    </button>
+    <button class="btn btn-info toggle-section" type="button" data-target="#bankDetails" style="background-color:#004d99;">
+        BANK DETAILS
+    </button>
+    </center>
+    <div class="collapse show" id="studentDetails">
+        <br>
+        <center><h3>STUDENT DETAILS</h3></center>
+        <ul class="list-group">
+            <li class="list-group-item"><strong>Student id:</strong> {{ student.s_code }}</li>
+            <li class="list-group-item"><strong>Name:</strong> {{ student.s_name }}</li>
+            <li class="list-group-item"><strong>Gender:</strong> {{ student.sex }}</li>
+            <li class="list-group-item"><strong>Date of Birth:</strong> {{ student.dob }}</li>
+            <li class="list-group-item"><strong>Educational Year:</strong> {{ student.edu_year }}</li>
+            <li class="list-group-item"><strong>Father/Mother Name:</strong> {{ student.f_m_name }}</li>
+            <li class="list-group-item"><strong>Community:</strong> {{ student.community }}</li>
+            <li class="list-group-item"><strong>Parent Income:</strong> {{ student.p_income }}</li>
+            <li class="list-group-item"><strong>Community Attachment Name:</strong> {{ student.ca_name }}</li>
+            <li class="list-group-item"><strong>Income Attachment Name:</strong> {{ student.ia_name }}</li>
+        </ul>
+    </div>
+    
+
+    
+    <div class="collapse" id="locationDetails">
+        <br>
+        <center><h3>ADDRESS DETAILS</h3></center>
+        <ul class="list-group">
+            {% for location in locations %}
+            
+                <li class="list-group-item"><strong>Rural/Urban:</strong> {{ location.s_code }}<br></li> 
+                <li class="list-group-item"><strong>Full Address:</strong> {{ location.addr1 }} , {{ location.addr2 }}<br></li> 
+                <li class="list-group-item"><strong>District:</strong> {{ location.d_name }}<br></li> 
+                <li class="list-group-item"><strong>City:</strong> {{ location.p_name }}<br></li> 
+                <li class="list-group-item"><strong>State:</strong> {{ location.states }}<br></li> 
+                    
+            
+            {% endfor %}
+        </ul>
+    </div>
+    
+
+    
+    <div class="collapse" id="collegeDetails">
+        <br>
+        <center><h3>COLLEGE DETAILS</h3></center>
+        <ul class="list-group">
+            {% for college in colleges %}
+            
+                <li class="list-group-item"><strong>College Code:</strong> {{ college.c_code }} <br></li>
+                <li class="list-group-item"><strong>College Name:</strong> {{ college.c_name }} <br></li>
+                <li class="list-group-item"><strong>Location:</strong> {{ college.l_name }} <br></li>
+            
+            {% endfor %}
+        </ul>
+    </div>
+    
+
+    
+    
+    <div class="collapse" id="bankDetails">
+        <br>
+        <center><h3>BANK DETAILS</h3></center>
+        <ul class="list-group">
+            {% for bank in banks %}
+            
+                <li class="list-group-item"><strong>Account Number:</strong> {{ bank.acc_no }} <br></li>
+                <li class="list-group-item"><strong>Account Name:</strong> {{ bank.b_name }} <br></li>
+                <li class="list-group-item"><strong>IFSC Code:</strong> {{ bank.ifsc }} <br></li>
+                <li class="list-group-item"><strong>Branch:</strong> {{ bank.b_loc }} <br></li>
+                <li class="list-group-item"><strong>Bank Address:</strong> {{ bank.b_addr }} <br></li>
+            
+            {% endfor %}
+        </ul>
+    </div>
+    <br>
+    <br>
+    
+
+    <a href="{% url 'student_detail' student_id=student.s_code %}" class="btn btn-primary" style="background-color:#004d99;" >Back to Student Details</a>
+    <form action="{% url 'logout' %}" method="post" style="display:inline;" style="margin-right: 100vh;">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger" style="margin-right: 10cm; background-color:#FF0000">Logout</button>
+    </form>
+</div>
+</body>
+</html>

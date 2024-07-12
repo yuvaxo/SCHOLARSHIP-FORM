@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Location Form</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'your_css_file.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        const locationData = {{ location_data|safe }};
+
+        $(document).ready(function() {
+            $('#id_states').change(function() {
+                let selectedState = $(this).val();
+                let districtOptions = locationData[selectedState] || [];
+                
+                $('#id_d_name').empty();
+                districtOptions.forEach(function(district) {
+                    $('#id_d_name').append(new Option(district, district));
+                });
+            });
+
+            // Trigger change event on page load to populate the district field if state is already selected
+            $('#id_states').trigger('change');
+        });
+    </script>
+</head>
+<body>
+    <h1>Location Form</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

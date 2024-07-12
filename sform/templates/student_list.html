@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h2>Student List</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>S. Code</th>
+                <th>Name</th>
+                <th>sex</th>
+                <th>DOB</th>
+                <th>Edu Year</th>
+                <th>F. M. Name</th>
+                <th>Community</th>
+                <th>P. Income</th>
+                <th>Password</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{ student.s_code }}</td>
+                <td>{{ student.s_name }}</td>
+                <td>{{ student.sex }}</td>
+                <td>{{ student.dob }}</td>
+                <td>{{ student.edu_year }}</td>
+                <td>{{ student.f_m_name }}</td>
+                <td>{{ student.community }}</td>
+                <td>{{ student.p_income }}</td>
+                <td>{{ student.passwd }}</td>
+                <td>
+                    {% if student.community_attach %}
+                        <a href="{% url 'download_file' student.s_code 'community' %}" class="btn btn-sm btn-primary">Download Community Attachment</a>
+                        <br>
+                    {% endif %}
+                    <br>
+                    {% if student.income_attach %}
+                        <a href="{% url 'download_file' student.s_code 'income' %}" class="btn btn-sm btn-primary">Download Income Attachment</a>
+                        <br>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
