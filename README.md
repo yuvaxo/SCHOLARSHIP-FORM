@@ -1,6 +1,3 @@
-SCHOLARSHIP-FORM project 
-<br>
-😊
 # Scholarship Form Website Project: Setup and Installation Guide
 
 Welcome to the comprehensive guide for setting up the development environment for the Scholarship Form Website project. This guide will walk you through the steps required to install and configure the necessary tools, databases, and libraries to get your project up and running. The project involves building a web application using Django, with Oracle DB 21c XE as the database backend. Visual Studio Code (VSC) will be used as the code editor.
