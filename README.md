@@ -1,6 +1,7 @@
 # Scholarship Form Website Project: Setup and Installation Guide
 
-Welcome to the comprehensive guide for setting up the development environment for the Scholarship Form Website project. This guide will walk you through the steps required to install and configure the necessary tools, databases, and libraries to get your project up and running. The project involves building a web application using Django, with Oracle DB 21c XE as the database backend. Visual Studio Code (VSC) will be used as the code editor.
+Welcome to the comprehensive guide for setting up the development environment for the Scholarship Form Website project. This guide will walk you through the steps required to install and configure the necessary tools, databases, and libraries to get your project up and running. The project involves building a web application using Django, with Oracle DB 21c XE as the database backend. Visual Studio Code (VSC) will be used as the code editor and project is developed by [K.YUVA SHANKAR](https://www.linkedin.com/in/yuva-shankar-4ba786228?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app).
+
 
 ## Table of Contents
 
@@ -177,3 +178,6 @@ After completing the setup, you can now run the Django development server to sta
 ## Conclusion
 
 This guide has walked you through the steps to set up a development environment for the Scholarship Form Website project. By following these instructions, you will have a fully functional Django application with Oracle DB 21c XE as the backend. This setup provides a solid foundation for further development and customization of your scholarship management system.
+
+**project developed by [K.YUVA SHANKAR](https://www.linkedin.com/in/yuva-shankar-4ba786228?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app).**
+
